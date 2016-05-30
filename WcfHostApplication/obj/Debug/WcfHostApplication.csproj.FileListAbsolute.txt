@@ -1,0 +1,8 @@
+D:\SampleComponent_Projects\WcfShoppingService\WcfHostApplication\bin\Debug\WcfHostApplication.exe.config
+D:\SampleComponent_Projects\WcfShoppingService\WcfHostApplication\bin\Debug\WcfHostApplication.exe
+D:\SampleComponent_Projects\WcfShoppingService\WcfHostApplication\bin\Debug\WcfHostApplication.pdb
+D:\SampleComponent_Projects\WcfShoppingService\WcfHostApplication\bin\Debug\WcfServiceContainer.dll
+D:\SampleComponent_Projects\WcfShoppingService\WcfHostApplication\bin\Debug\WcfServiceContainer.pdb
+D:\SampleComponent_Projects\WcfShoppingService\WcfHostApplication\obj\Debug\WcfHostApplication.csprojResolveAssemblyReference.cache
+D:\SampleComponent_Projects\WcfShoppingService\WcfHostApplication\obj\Debug\WcfHostApplication.exe
+D:\SampleComponent_Projects\WcfShoppingService\WcfHostApplication\obj\Debug\WcfHostApplication.pdb

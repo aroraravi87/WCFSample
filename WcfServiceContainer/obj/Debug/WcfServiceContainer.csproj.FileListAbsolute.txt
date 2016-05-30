@@ -1,0 +1,5 @@
+D:\SampleComponent_Projects\WcfShoppingService\WcfServiceContainer\bin\Debug\WcfServiceContainer.dll.config
+D:\SampleComponent_Projects\WcfShoppingService\WcfServiceContainer\bin\Debug\WcfServiceContainer.dll
+D:\SampleComponent_Projects\WcfShoppingService\WcfServiceContainer\bin\Debug\WcfServiceContainer.pdb
+D:\SampleComponent_Projects\WcfShoppingService\WcfServiceContainer\obj\Debug\WcfServiceContainer.dll
+D:\SampleComponent_Projects\WcfShoppingService\WcfServiceContainer\obj\Debug\WcfServiceContainer.pdb
