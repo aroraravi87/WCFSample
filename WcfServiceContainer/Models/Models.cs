@@ -7,7 +7,7 @@ using System.Web;
 namespace WcfServiceContainer.Models
 {
     [DataContract]
-    public class Product
+    public partial class ProductModel
     {
         [DataMember]
         public int ProductID { get; set; }

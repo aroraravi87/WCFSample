@@ -27,7 +27,7 @@ namespace WcfHostApplication
                 ServiceDebugBehavior stp = host.Description.Behaviors.Find<ServiceDebugBehavior>();
                 stp.HttpHelpPageEnabled = false;
                 host.Open();
-                Console.WriteLine("Service is up and running");
+                Console.WriteLine("Service is up and running on {0} ", baseAddress);
                 Console.WriteLine("Press enter to quit ");
                 Console.ReadLine();
                 host.Close();

@@ -2,38 +2,62 @@
     ViewBag.Title = "Home Page";
 }
 
+<div class="container">
+    <div class="col-sm-12 form-horizontal">
+        <div class="form-group col-sm-12">
+            <div class="col-md-3">
+                <input type="button" value=" GetJson " id="btnJson" class="btn btn-danger" />
+                <input type="button" value=" GetXml " id="btnXml" class="btn btn-success" />
+            </div>
+            <div class="col-md-9" id="content">
 
+            </div>
 
-<div class="row">
-    <div class="col-md-2">
-        <input type="button" value=" GetJson " id="btnJson" class="btn btn-danger" />
+        </div>
     </div>
-    <div class="col-md-2">
-        <input type="button" value=" GetXml " id="btnXml" class="btn btn-success" />
-    </div>
-    
 </div>
-
 <script type="text/javascript">
     $('#btnJson').click(function () {
         $.ajax({
             url: "http://localhost:8731/WcfServiceContainer/ShoppingCartService/json/20",
             type: "GET",
             dataType: "json",
-            
+
             success: function (data) {
-                console.log(JSON.stringify(data));
+                $("#content").html("");
+                if (data != null) {
+                    var str = "";
+                    str = "<table class='table table responsive'>";
+                    $.each(data.GetJsonDataResult, function (key, value) {
+                        console.log(value)
+                        str += "<tr scope='row'>";
+                        str += "<td>" + value.ProductID + "</td>";
+                        str += "<td><img src=" + value.ProductUrl + " alt='NoImage'></td>";
+                        str += "<td>" + value.ProductName + "</td>";
+                        str += "<td><strong>" + value.ProductPrice + "</strong></td>";
+                        str += "<td>" + value.ProductImage + "</td>";
+                        str += "</tr>";
+                    });
+
+                    str += "</table>";
+                    console.log(str);
+                    $("#content").html(str);
+
+                }
+
+
 
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
+                $("#content").html("");
                 alert(textStatus);
             }
         });
     });
-    
+
     $('#btnXml').click(function () {
         $.ajax({
-           url: "http://localhost:8731/WcfServiceContainer/ShoppingCartService/xml/20",
+            url: "http://localhost:8731/WcfServiceContainer/ShoppingCartService/xml/20",
             //url: "../Content/Record.xml",
             type: "GET",
             dataType: "xml",

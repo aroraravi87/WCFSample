@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Web;
-using System.Text;
 using WcfServiceContainer.Models;
+using WcfService.Library.Entities;
 
 namespace WcfServiceContainer
 {
@@ -56,7 +51,7 @@ namespace WcfServiceContainer
                     ResponseFormat = WebMessageFormat.Xml,
                     BodyStyle = WebMessageBodyStyle.Wrapped,
                     UriTemplate = "xml/{id}")]
-        Product GetXMlData(string id);
+        ProductModel GetXMlData(string id);
 
 
         [OperationContract]
@@ -64,7 +59,11 @@ namespace WcfServiceContainer
                     ResponseFormat = WebMessageFormat.Json,
                     BodyStyle = WebMessageBodyStyle.Wrapped,
                     UriTemplate = "json/{id}")]
-        List<Product> GetJsonData(string id);
+        List<ProductModel> GetJsonData(string id);
+        [OperationContract]
+        [WebInvoke(Method ="GET",ResponseFormat =WebMessageFormat.Json,BodyStyle =WebMessageBodyStyle.Wrapped,UriTemplate ="json")]
+        List<Employee> GetCustomerDetails();
 
     }
+
 }
