@@ -7,7 +7,7 @@
         <div class="form-group col-sm-12">
             <div class="col-md-3">
                 <input type="button" value=" GetJson " id="btnJson" class="btn btn-danger" />
-                <input type="button" value=" GetXml " id="btnXml" class="btn btn-success" />
+                <input type="button" value=" GetCustomers " id="btnXml" class="btn btn-success" />
             </div>
             <div class="col-md-9" id="content">
 
@@ -29,7 +29,6 @@
                     var str = "";
                     str = "<table class='table table responsive'>";
                     $.each(data.GetJsonDataResult, function (key, value) {
-                        console.log(value)
                         str += "<tr scope='row'>";
                         str += "<td>" + value.ProductID + "</td>";
                         str += "<td><img src=" + value.ProductUrl + " alt='NoImage'></td>";
@@ -57,15 +56,31 @@
 
     $('#btnXml').click(function () {
         $.ajax({
-            url: "http://localhost:8731/WcfServiceContainer/ShoppingCartService/xml/20",
-            //url: "../Content/Record.xml",
+            url: "http://localhost:8731/WcfServiceContainer/ShoppingCartService/json",
             type: "GET",
-            dataType: "xml",
+            dataType: "json",
             success: function (data) {
-                console.log(data);
+                $("#content").html("");
+                var str1 = "";
+                if (data.GetCustomerDetailsResult != null) {
+                str1 = "<table class='table table responsive'>";
+                $.each(data.GetCustomerDetailsResult, function (key, value) {
+                    str1 += "<tr scope='row'>";
+                    str1 += "<td>" + value.CustomerID + "</td>";
+                    str1 += "<td>" + value.CompanyName + "</td>";
+                    str1 += "<td>" + value.ContactName + "</td>";
+                    str1 += "<td><strong>" + value.Region + "</strong></td>";
+                    str1 += "<td>" + value.Country + "</td>";
+                    str1 += "</tr>";
+                });
+
+                str1 += "</table>";
+               
+                $("#content").html(str1);
+}
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                console.log(XMLHttpRequest.responseText);
+                alert(errorThrown);
             }
         });
     });

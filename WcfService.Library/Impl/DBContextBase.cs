@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace WcfService.Library
+namespace WcfService.Library.EDMX
 {
     using System;
     using System.Data.Entity;

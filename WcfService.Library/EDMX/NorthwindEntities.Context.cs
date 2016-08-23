@@ -7,14 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WcfService.Library
+namespace WcfService.Library.EDMX
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-   
-    using Entities;
-
+    
     public partial class NorthwindEntities : DbContext
     {
         public NorthwindEntities()

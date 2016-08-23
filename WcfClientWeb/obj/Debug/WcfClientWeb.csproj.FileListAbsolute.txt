@@ -104,6 +104,6 @@ E:\Git-Component\WCFSample\WcfClientWeb\bin\Microsoft.Owin.Security.OAuth.xml
 E:\Git-Component\WCFSample\WcfClientWeb\bin\Microsoft.Owin.Security.Google.xml
 E:\Git-Component\WCFSample\WcfClientWeb\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Git-Component\WCFSample\WcfClientWeb\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Git-Component\WCFSample\WcfClientWeb\obj\Debug\WcfClientWeb.csprojResolveAssemblyReference.cache
 E:\Git-Component\WCFSample\WcfClientWeb\obj\Debug\WcfClientWeb.dll
 E:\Git-Component\WCFSample\WcfClientWeb\obj\Debug\WcfClientWeb.pdb
-E:\Git-Component\WCFSample\WcfClientWeb\obj\Debug\WcfClientWeb.csprojResolveAssemblyReference.cache

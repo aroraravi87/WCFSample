@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WcfService.Library.Entities
+namespace WcfService.Library.EDMX
 {
     using System;
     using System.Collections.Generic;

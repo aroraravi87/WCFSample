@@ -5,7 +5,8 @@
 // -----------------------------------------------------------------------
 
 
-using WcfService.Library.Entities;
+using WcfService.Library;
+using WcfService.Library.EDMX;
 using WcfService.Library.Impl.Interface;
 
 namespace WcfService.Library.Impl

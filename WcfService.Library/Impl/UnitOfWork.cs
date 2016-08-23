@@ -9,6 +9,7 @@ namespace WcfService.Library.Impl
     using System;
     using System.Collections;
     using Interface;
+    using WcfService.Library.EDMX;
     public class UnitOfWork : IUnitOfWork
     {
         #region Private Fields

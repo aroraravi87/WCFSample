@@ -3,6 +3,7 @@
 using Microsoft.Practices.Unity;
 using WcfService.Library;
 using WcfService.Library.DAL.Customer.Interface;
+using WcfService.Library.EDMX;
 using WcfService.Library.Impl;
 using WcfService.Library.Impl.Interface;
 

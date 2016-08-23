@@ -4,21 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WcfService.Library.Impl;
-using Entity = WcfService.Library.Entities;
+using WCFDataTransferObjects.Customers;
+using Entity = WcfService.Library.EDMX;
 
 namespace WcfService.Library.DAL.Customer.Interface
 {
-    public class CustomerService:ICustomerService
+    public class CustomerService : ICustomerService
     {
-        public IQueryable<Entity.Employee> GetCustomers()
+        public IList<CustomerDTO> GetCustomers()
         {
-            IQueryable<Entity.Employee> CustomersList;
-
-            using (var unitWork = new UnitOfWork())
-            {
-                CustomersList=unitWork.GetRepository<Entity.Employee>().GetList();
-            }
-            return CustomersList;
+            var unitWork = new UnitOfWork();
+            return unitWork.GetRepository<Entity.Customer>().GetList()
+                    .Select(x=>new CustomerDTO()
+                    {
+                        CompanyName = x.CompanyName,
+                        Address = x.Address,
+                        ContactName =x.ContactName,
+                        Region = x.Region,
+                        CustomerID = x.CustomerID,
+                        Country = x.Country
+                    }).ToList();
         }
     }
 }

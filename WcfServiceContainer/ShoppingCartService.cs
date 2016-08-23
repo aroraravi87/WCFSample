@@ -7,9 +7,12 @@ using System.ServiceModel.Web;
 using System.Text;
 using WcfService.Library;
 using WcfService.Library.DAL.Customer.Interface;
-using Entity=WcfService.Library.Entities;
+using Entity = WcfService.Library.EDMX;
 using WcfService.Unity.UnityBase;
 using WcfServiceContainer.Models;
+using System.Data.Entity.Validation;
+using WCFDataTransferObjects;
+using WCFDataTransferObjects.Customers;
 
 namespace WcfServiceContainer
 {
@@ -65,15 +68,44 @@ namespace WcfServiceContainer
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<Entity.Employee> GetCustomerDetails()
+        public IList<CustomerDTO> GetCustomerDetails()
         {
-            if (HandleHttpOptionsRequest())
+
+            try
             {
-                var result = CustomUnityContainer.Resolve<ICustomerService>().GetCustomers();
-                if (result != null && result.Count() > 0)
-                    return result.ToList();
+                if (HandleHttpOptionsRequest())
+                {
+                    IList<CustomerDTO> CustomerList = CustomUnityContainer.Resolve<ICustomerService>().GetCustomers();
+                    return CustomerList.Count > 0 ? CustomerList : null;
+
+                }
             }
-            return null;
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Combine the original exception message with the new one.
+                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+            }
+            catch (InvalidOperationException ex)
+            {
+                //throw ex;
+            }
+            catch (Exception ex)
+            {
+            }
+
+
+                return null;
         }
 
         public void Dispose()

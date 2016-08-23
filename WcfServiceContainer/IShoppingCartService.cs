@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Web;
+using WCFDataTransferObjects.Customers;
 using WcfServiceContainer.Models;
-using WcfService.Library.Entities;
+using Entity = WcfService.Library.EDMX;
 
 namespace WcfServiceContainer
 {
@@ -60,9 +61,13 @@ namespace WcfServiceContainer
                     BodyStyle = WebMessageBodyStyle.Wrapped,
                     UriTemplate = "json/{id}")]
         List<ProductModel> GetJsonData(string id);
+
+
         [OperationContract]
-        [WebInvoke(Method ="GET",ResponseFormat =WebMessageFormat.Json,BodyStyle =WebMessageBodyStyle.Wrapped,UriTemplate ="json")]
-        List<Employee> GetCustomerDetails();
+        [WebInvoke(Method ="GET",ResponseFormat =WebMessageFormat.Json,
+                                BodyStyle =WebMessageBodyStyle.Wrapped,
+                                UriTemplate ="json")]
+        IList<CustomerDTO> GetCustomerDetails();
 
     }
 
