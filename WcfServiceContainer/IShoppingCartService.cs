@@ -64,10 +64,14 @@ namespace WcfServiceContainer
 
 
         [OperationContract]
-        [WebInvoke(Method ="GET",ResponseFormat =WebMessageFormat.Json,
-                                BodyStyle =WebMessageBodyStyle.Wrapped,
-                                UriTemplate ="json")]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+                                BodyStyle = WebMessageBodyStyle.Wrapped,
+                                UriTemplate = "json")]
         IList<CustomerDTO> GetCustomerDetails();
+
+        [OperationContract]
+        [FaultContract(typeof(string))]
+        AuthReponse GetAuthorInfo(AuthRequest objRequest);
 
     }
 

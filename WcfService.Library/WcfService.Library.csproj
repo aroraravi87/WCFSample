@@ -53,6 +53,18 @@
   <ItemGroup>
     <Compile Include="DAL\Customer\Interface\ICustomerService.cs" />
     <Compile Include="DAL\CustomerService.cs" />
+    <Compile Include="EDMX\Category.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\Customer.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\CustomerDemographic.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\Employee.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="EDMX\NorthwindEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -68,18 +80,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NorthwindEntities.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Category.cs" />
-    <Compile Include="Entities\Customer.cs" />
-    <Compile Include="Entities\CustomerDemographic.cs" />
-    <Compile Include="Entities\Employee.cs" />
-    <Compile Include="Entities\Order.cs" />
-    <Compile Include="Entities\Order_Detail.cs" />
-    <Compile Include="Entities\Product.cs" />
-    <Compile Include="Entities\Region.cs" />
-    <Compile Include="Entities\Shipper.cs" />
-    <Compile Include="Entities\Supplier.cs" />
-    <Compile Include="Entities\Territory.cs" />
-    <Compile Include="Entities\User.cs" />
+    <Compile Include="EDMX\Order.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\Order_Detail.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\Product.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\Region.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\Shipper.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\Supplier.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\Territory.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\User.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Impl\DBContextBase.cs" />
     <Compile Include="Impl\GenericRepositoryImpl.cs" />
     <Compile Include="Impl\Interface\IDBContext.cs" />

@@ -16,7 +16,7 @@ using WCFDataTransferObjects.Customers;
 
 namespace WcfServiceContainer
 {
-    public class ShoppingCartService : IShoppingCartService,IDisposable
+    public class ShoppingCartService : IShoppingCartService, IDisposable
     {
 
 
@@ -54,7 +54,7 @@ namespace WcfServiceContainer
                     objProduct.ProductID = i;
                     objProduct.ProductName = "product" + i;
                     objProduct.ProductPrice = "$" + (i * objRand.Next(100, 1000));
-                    objProduct.ProductUrl = "http://localhost:8091/" + i + ".jpg";
+                    objProduct.ProductUrl = "http://localhost:8010/" + i + ".jpg";
                     objProduct.ProductImage = "" + i + ".jpg";
                     productList.Add(objProduct);
                 }
@@ -62,7 +62,7 @@ namespace WcfServiceContainer
             }
             return null;
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -105,12 +105,34 @@ namespace WcfServiceContainer
             }
 
 
-                return null;
+            return null;
         }
 
         public void Dispose()
         {
-           
+
+        }
+
+        private const string AuthID = "1001";
+
+        public AuthReponse GetAuthorInfo(AuthRequest objRequest)
+        {
+            if (objRequest.AuthId != AuthID)
+            {
+                string str = "Invalid User ID";
+                throw new FaultException<string>(str);
+            }
+            else
+            {
+
+
+                AuthReponse objReponse = new AuthReponse();
+                objReponse.AuthObject = new Author();
+                objReponse.AuthObject.FirstName = "Ravi";
+                objReponse.AuthObject.LastName = "Arora";
+                objReponse.AuthObject.ContactNumber = "8889963652";
+                return objReponse;
+            }
         }
     }
 }
